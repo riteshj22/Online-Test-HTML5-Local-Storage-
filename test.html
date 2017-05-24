@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <TITLE>TEST</TITLE>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Stylesheets -->
+<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">s-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <style> 
+        body {
+            padding-top: 100px;
+            padding-left: 25px;
+            padding-right: 25px;
+
+        }
+        @media (max-width: 768px) {
+         #review {
+            margin-left:30px;        }
+    }
+        
+        #logout1 {
+            margin-bottom: 10px;
+        }
+        
+        #review {
+            margin-bottom: 10px;
+            margin-right: 10px;
+/*            margin-left: 10px;*/
+        }
+        
+        #submit {
+            margin-top: 30px;
+        }
+        
+        #backNext {
+            margin-top: 10px;
+        }
+
+        #logout {
+            margin-bottom: 10px;
+        }
+
+        #previousTest {
+            padding-right: 25px;
+        }   
+
+        #text{
+            font-size: 28px;
+            font-weight: bold;
+            padding-bottom: 25px;
+        }
+
+        #start {
+            margin-top: 20px;
+            padding: 10 10 10 10;
+            font-size: 24px;
+
+        }
+        
+        #final{
+            margin-top: 50px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        #total{
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        #prevTestButtons{
+            font-weight: bold;
+        }
+        .questionButton{
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        #buttons{
+            margin-top: 20px;
+        }
+        #question_list{
+            margin-top: 10px;
+        }
+        #home{
+            padding: 10 10 10 10;
+        }
+    </style>
+</head>
+<body>
+    <!-- External Scripts -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="controller.js"></script>   
+
+    <div class="container">
+<!--       <div  class="well well-sm col-lg-6 col-md-6 col-sm-3 col-xs-2" id="message"><label for="name" class="control-label col-lg-12">Login with your email address</label></div>-->
+        
+        
+            <form role="form">
+                
+                <div id="login" class = "well well-lg col-lg-offset-3 col-lg-6" >
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <div>
+                            <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div>
+                        <button id ="login1"   type="button" class= "btn btn-default">LOGIN</button>
+                    </div>
+                </div>
+    
+                
+                <div id= "logout1" class = "row" style="display:none">
+                <button type="button" class = "btn btn-danger pull-right col-lg-2 col-md-2 col-sm-2 col-xs-12"  id="logout">LOGOUT</button>
+                </div>
+    
+                <div id="previousTest" class = " row well well-lg col-lg-offset-1 col-lg-10" ></div>
+        
+                <div id="startPage" class = "row col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-8 col-sm-offset-2 col-sm-9 col-xs-offset-1 col-xs-11" style="display:none">
+    
+                    <div class="row col-lg-offset-2 col-lg-8 col-sm-offset-3 col-xs-offset-2 col-xs-11" id="text">CLICK TO START</div>
+<!--                    <div class="row col-lg-offset-4 col-lg-5 col-md-offset-1 col-md-8 col-sm-offset-1 col-sm-8 col-xs-offset-1 col-xs-11" id="start1">-->
+                        <button id ="start" type="button" class= "btn btn-success  col-xs-offset-1 col-xs-10">START</button> 
+<!--                    </div>-->
+                    <br>
+                </div>
+    
+                <div id="test" class = "row" style="display:none">
+       
+           
+                    <div id ="reviewButton" class="row">
+                        <button type="button" class = "btn btn-primary pull-right col-lg-2 col-md-2 col-sm-2 col-xs-12" id="review">REVIEW</button>
+                        <div id = "question_list" class= "row"></div>
+                    </div>
+
+                    <div id="options"></div>
+
+                    <div class="row" id="backNext">
+                        <button type="button" class = "btn btn-default col-lg-2 col-md-2 col-sm-2 col-xs-5"  id="back" >BACK</button> 
+                        <button type="button" class = "btn btn-default pull-right col-lg-2 col-md-2 col-sm-2 col-xs-5"  id="next" align="right">NEXT</button>     
+
+                    </div>
+
+                    <div id= "submit" class="row">
+                        <button type="button" class = "btn btn-success col-lg-offset-4 col-lg-2 col-md-offset-4 col-md-2  col-sm-2 col-xs-12"  id="submit">SUBMIT</button>
+                    </div>
+
+                </div>
+    
+
+                <div id="final" class=" row well col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-8 col-sm-offset-2 col-sm-9"></div>
+                
+            </form>
+    </div>
+
+</body>
+</html>
